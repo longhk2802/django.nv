@@ -64,12 +64,12 @@ workflows:
             branches:
               only:
                 - main
-      - prod
+      - prod:
           filters:
             branches:
               only:
                 - main
-      - artifact
+      - artifact:
           filters:
             branches:
               only:
