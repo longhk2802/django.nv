@@ -18,15 +18,12 @@ jobs:
           python manage.py test taskManager
   
   release:
-    docker:
-      - image: cimg/go:1.17
-        auth:
-          username: $DOCKERHUB_USERNAME
-          password: $DOCKERHUB_PASSWORD
+    machine: true
     steps:
       - checkout
 
-      - run: |
+      - command: |
+          echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
           docker build -t $DOCKER_USERNAME/django.nv .   # Build the application into Docker image
           docker push $DOCKER_USERNAME/django.nv         # Push the image into registry
 
