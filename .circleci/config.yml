@@ -24,6 +24,8 @@ jobs:
 
       - run: 
           command: |
+            echo $DOCKERHUB_PASSWORD
+            echo $DOCKERHUB_USERNAME
             echo "$DOCKERHUB_PASSWORD" | docker login --username "$DOCKERHUB_USERNAME" --password-stdin
             docker build -t $DOCKER_USERNAME/django.nv .   # Build the application into Docker image
             docker push $DOCKER_USERNAME/django.nv         # Push the image into registry
