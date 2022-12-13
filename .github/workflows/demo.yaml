@@ -31,7 +31,7 @@ jobs:
   artifact:
     runs-on: ubuntu-20.04
     steps:
-      - run: sh 'echo "hellooo" > hello.txt'
+      - run: echo "hellooo" > hello.txt
       - name: Archive production artifacts
         uses: actions/upload-artifact@v3
         with:
