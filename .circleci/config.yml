@@ -54,8 +54,24 @@ workflows:
             branches:
               only: 
                 - main
-      - test
-      - integration
+      - test:
+          filters:
+            branches:
+              only:
+                - test
+      - integration:
+          filters:
+            branches:
+              only:
+                - main
       - prod
+          filters:
+            branches:
+              only:
+                - main
       - artifact
+          filters:
+            branches:
+              only:
+                - main
             
