@@ -50,7 +50,22 @@ workflows:
   django:
     jobs:
       - build
+          filters:
+            branches:
+              only: test
       - test
+          filters:
+            branches:
+              only: test
       - integration
+          filters:
+            branches:
+              only: test
       - prod
+          filters:
+            branches:
+              only: test
       - artifact
+          filters:
+            branches:
+              only: test
