@@ -52,7 +52,8 @@ workflows:
       - build
           filters:
             branches:
-              only: test
+              only: 
+                - main
       - test
       - integration
       - prod
