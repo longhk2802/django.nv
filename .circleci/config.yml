@@ -52,20 +52,25 @@ workflows:
       - build
           filters:
             branches:
-              only: test
+              only: 
+               - test
       - test
           filters:
             branches:
-              only: test
+              only: 
+               - test
       - integration
           filters:
             branches:
-              only: test
+              only: 
+               - test
       - prod
           filters:
             branches:
-              only: test
+              only: 
+               - test
       - artifact
           filters:
             branches:
-              only: test
+              only: 
+               - test
