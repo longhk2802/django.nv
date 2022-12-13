@@ -46,31 +46,19 @@ jobs:
           destination: artifactss
 
 workflows:
+  build:
+    jobs:
+      - test:
+          filters:
+            branches:
+              only:
+                - test
   version: 2
   django:
     jobs:
       - build
-          filters:
-            branches:
-              only: 
-               - test
       - test
-          filters:
-            branches:
-              only: 
-               - test
       - integration
-          filters:
-            branches:
-              only: 
-               - test
       - prod
-          filters:
-            branches:
-              only: 
-               - test
       - artifact
-          filters:
-            branches:
-              only: 
-               - test
+            
