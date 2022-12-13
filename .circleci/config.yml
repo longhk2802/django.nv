@@ -19,12 +19,16 @@ jobs:
   
   release:
     machine:
-      image: ubuntu-2204:2022.04.2                                        # What is this for?
+      image: ubuntu-2204:2022.04.2
+    docker:
+      - image: cimg/go:1.17
+        auth:
+          username: $DOCKERHUB_USERNAME
+          password: $DOCKERHUB_PASSWORD
     steps:
       - checkout
 
       - run: |
-          echo "$DOCKERHUB_PASSWORD" | docker login --username $DOCKERHUB_USERNAME --password-stdin
           docker build -t $DOCKER_USERNAME/django.nv .   # Build the application into Docker image
           docker push $DOCKER_USERNAME/django.nv         # Push the image into registry
 
