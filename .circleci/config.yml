@@ -26,6 +26,7 @@ jobs:
           command: |
             echo "This is an integration step"
             exit 1
+            my_cool_command
 
   prod:
     docker:
