@@ -35,6 +35,16 @@ jobs:
       - checkout
       - run: echo "This is a deploy step"
 
+  artifact:
+    docker:
+      - image: python:3.6
+    steps:
+      - checkout
+      - run: echo "hellooo" > hello.txt
+      - store_artifacts:
+          path: hello.txt
+          destination: artifactss
+
 workflows:
   version: 2
   django:
