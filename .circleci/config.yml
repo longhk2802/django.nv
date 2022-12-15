@@ -23,7 +23,7 @@ jobs:
       - checkout
 
       - run: docker run -v $(pwd):/src --rm hysnsec/safety check -r /src/requirements.txt --json | tee oast-results.json
-
+        when: on_fail
       - store_artifacts:
           path: oast-results.json
           destination: safety-artifact
