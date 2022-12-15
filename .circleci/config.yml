@@ -16,17 +16,6 @@ jobs:
       - run: |
           pip install -r requirements.txt
           python manage.py test taskManager
-  
-  release:
-    machine: true
-    steps:
-      - checkout
-
-      - run: 
-          command: |
-            echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
-            docker build -t $DOCKER_USERNAME/django.nv .   # Build the application into Docker image
-            docker push $DOCKER_USERNAME/django.nv         # Push the image into registry
 
   integration:
     docker:
@@ -37,7 +26,6 @@ jobs:
           command: |
             echo "This is an integration step"
             exit 1
-          when: always                    # Even if the job fails, continue to the next stages
 
   prod:
     docker:
@@ -53,10 +41,7 @@ workflows:
       - build
       - test:
           requires:
-            - build
-      - release:
-          requires:
-            - test 
+            - build 
       - integration:
           requires:
             - test
