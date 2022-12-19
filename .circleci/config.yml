@@ -18,7 +18,7 @@ jobs:
           python manage.py test taskManager
   oast-snyk:
     docker:
-      - image: node:latest
+      - image: node:14
     steps:
       - checkout
 
