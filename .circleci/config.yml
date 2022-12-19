@@ -29,6 +29,7 @@ jobs:
             mv snyk /usr/local/bin/
             npm install
             snyk test --json > snyk-results.json
+          when: on_fail
 
       - store_artifacts:
           path: snyk-results.json
