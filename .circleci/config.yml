@@ -34,6 +34,7 @@ jobs:
       - store_artifacts:
           path: snyk-results.json
           destination: snyk-artifact
+          when: always
   integration:
     docker:
       - image: python:3.6
