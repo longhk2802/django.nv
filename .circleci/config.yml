@@ -24,7 +24,7 @@ jobs:
 
       - run: 
           command: docker run --rm -v $(pwd):/src hysnsec/trufflehog file:///src --json > trufflehog-output.json
-          when: on_fail             # Even if the job fails, continue to the next stages
+          when: always           # Even if the job fails, continue to the next stages
 
       - store_artifacts:
           path: trufflehog-output.json
