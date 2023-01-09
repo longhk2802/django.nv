@@ -30,7 +30,7 @@ jobs:
       - uses: jpetrucciani/bandit-check@master
         with:
           path: '.'
-          bandit_flags: '-o bandit-output.json -f json'
+          bandit_flags: '-o bandit-output -f json'
 
       - run: |
           curl https://gitlab.practical-devsecops.training/-/snippets/3/raw -o upload-results.py
