@@ -29,10 +29,11 @@ jobs:
     steps:
       - uses: jpetrucciani/bandit-check@master
         with:
-          path: '.'
+          path: '../'
           bandit_flags: '-o bandit-output.json -f json'
 
       - run: |
+          pwd
           ls -la
           curl https://gitlab.practical-devsecops.training/-/snippets/3/raw -o upload-results.py
           python3 upload-results.py --host dojo-ha1b304i.lab.practical-devsecops.training --api_key ${{ secrets.API_KEY }} --engagement_id 1 --product_id 1 --lead_id 1 --environment "Production" --result_file bandit-output.json --scanner "Bandit Scan"
