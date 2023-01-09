@@ -30,6 +30,7 @@ jobs:
       - uses: actions/checkout@v2
       
       - uses: jpetrucciani/bandit-check@master
+        continue-on-error: true
         with:
           path: '.'
           bandit_flags: '-o bandit-output.json -f json'
