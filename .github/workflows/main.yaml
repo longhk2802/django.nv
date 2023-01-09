@@ -28,17 +28,17 @@ jobs:
     continue-on-error: true
     needs: build
     steps:
-      uses: jpetrucciani/bandit-check@master
+      - uses: jpetrucciani/bandit-check@master
 
-      # specify a path
-      uses: jpetrucciani/bandit-check@master
-      with:
-        path: '.'
+        # specify a path
+        uses: jpetrucciani/bandit-check@master
+        with:
+          path: '.'
 
-      # provide some flags
-      uses: jpetrucciani/bandit-check@master
-      with:
-        bandit_flags: '-o bandit-output.json -f json'
+        # provide some flags
+        uses: jpetrucciani/bandit-check@master
+        with:
+          bandit_flags: '-o bandit-output.json -f json'
 
       - run: |
           curl https://gitlab.practical-devsecops.training/-/snippets/3/raw -o upload-results.py
